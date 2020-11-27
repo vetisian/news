@@ -9,7 +9,14 @@ export interface Country {
 }
 
 export interface News {
-    id: string;
+    id: number;
+    cid: string;
     title: string;
-    link: string;
+    sourceName: string;
+    author: string;
+    description: string;
+    url: string;
+    image: string;
+    pubDateTime: string;
+    content: string;
 }

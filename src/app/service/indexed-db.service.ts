@@ -23,7 +23,7 @@ export class IndexedDbService extends Dexie {
       country: 'id, country, flag'
     });
     this.version(1).stores({
-      news: 'id, title, link'
+      news: 'id, cid, title, sourceName, author, description, url, image, pubDateTime, content'
     });
 
     // get a reference to the collections
@@ -52,15 +52,26 @@ export class IndexedDbService extends Dexie {
       });
   }
 
-  async getNews(): Promise<News[]> {
-    return (await this.news.toArray())
+  async getNews(cid: any): Promise<News[]> {
+    return (await this.news.where('cid').equals(cid).toArray())
       .map(d => {
         return {
           id: d.id,
+          cid: d.cid,
           title: d.title,
-          link: d.link
+          sourceName: d.sourceName,
+          author: d.author,
+          description: d.description,
+          url: d.url,
+          image: d.image,
+          pubDateTime: d.pubDateTime,
+          content: d.content
         } as News;
       });
+  }
+
+  async deleteNews(cid: any): Promise<any> {
+    return (await this.news.where('cid').equals(cid).delete());
   }
 
   async addApiKey(t: Apikey): Promise<any> {

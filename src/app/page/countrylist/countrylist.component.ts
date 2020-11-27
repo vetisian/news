@@ -42,7 +42,7 @@ export class CountrylistComponent implements OnInit {
       const url = this.countryApi + element;
       const res: any = await fetch(url);
       const responseData: any = await res.json();
-      console.log(element + 'info:', responseData);
+      console.log(element + ' info using Api:', responseData);
       this.idx.addCountryDetail({id: element, country: responseData.name, flag: responseData.flag});
       this.countries.push({id: element, country: responseData.name, flag: responseData.flag});
     });

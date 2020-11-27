@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr routerLink="/news/us" *ngFor="let item of countries; let i =  index;">
+        <tr *ngFor="let item of countries; let i =  index;" routerLink="/news/{{item.country}}/{{item.id}}">
             <td><strong>{{i + 1}}</strong></td>
             <td>{{item.country}}</td>
             <td>

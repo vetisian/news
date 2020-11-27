@@ -1,1 +1,19 @@
-<p>news-detail works!</p>
+<button type="button" class="btn btn-primary float-right" routerLink="/">Back</button>
+<table class="table table-hover">
+    <caption style="caption-side:top;">
+        <h2>News from {{cname}}</h2>
+    </caption>
+
+    <tbody>
+        <tr *ngFor="let item of news; let i =  index;">
+            <td width="10%"><strong>{{i + 1}}</strong></td>
+            <td width="15%">
+                <img class="img-fluid img-thumbnail" src="{{item.image}}" alt="">
+            </td>
+            <td width="75%">
+                <h3><a href="{{item.url}}" target="_blank">{{item.title}} - {{item.sourceName}} <small>{{item.id | date: 'short'}}</small></a></h3>
+                <p>{{item.description}} {{item.content}}</p>
+            </td>
+        </tr>
+    </tbody>
+</table>

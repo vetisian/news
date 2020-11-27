@@ -10,7 +10,7 @@ const routes: Routes = [
     component: CountrylistComponent
   },
   {
-    path: 'news/:cid',
+    path: 'news/:cname/:cid',
     component: NewsDetailComponent
   },
   {
