@@ -1,1 +1,14 @@
-<p>apikey works!</p>
+<form>
+    <div class="form-group">
+        <h3>Settings</h3>
+    </div>
+    <div class="form-group">
+        <label for="apikey">NewsAPI.org</label>
+        <input type="text" class="form-control" id="apikey" name="apikey" [readOnly]="savedFlag" autocomplete="off" [(ngModel)]="inputVal" placeholder="API from newsapi.org">
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-warning mr-3" (click)="navigateFunc()">Back</button>
+        <button type="button" class="btn btn-danger" [disabled]="!inputVal" (click)="deleteApiKey()">Delete</button>
+        <button type="button" class="btn btn-primary float-right" [disabled]="!inputVal || savedFlag" (click)="addApiKey(inputVal)">Add</button>
+    </div>
+</form>
