@@ -5,6 +5,7 @@ export interface Apikey {
 export interface Country {
     id: string;
     country: string;
+    flag: string;
 }
 
 export interface News {

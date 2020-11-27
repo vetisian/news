@@ -9,6 +9,7 @@ import { CountrylistComponent } from './page/countrylist/countrylist.component';
 import { ApikeyComponent } from './page/apikey/apikey.component';
 import { NewsDetailComponent } from './page/news-detail/news-detail.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
-    FormsModule
   ],
   providers: [
     HttpService,

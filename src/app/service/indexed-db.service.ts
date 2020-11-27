@@ -20,7 +20,7 @@ export class IndexedDbService extends Dexie {
       apikey: 'apikey'
     });
     this.version(1).stores({
-      country: 'id, country'
+      country: 'id, country, flag'
     });
     this.version(1).stores({
       news: 'id, title, link'
@@ -46,7 +46,8 @@ export class IndexedDbService extends Dexie {
       .map(d => {
         return {
           id: d.id,
-          country: d.country
+          country: d.country,
+          flag: d.flag
         } as Country;
       });
   }
@@ -70,7 +71,7 @@ export class IndexedDbService extends Dexie {
     return await this.apikey.clear();
   }
 
-  async addCountry(t: Country): Promise<any> {
+  async addCountryDetail(t: Country): Promise<any> {
     return await this.country.put(t);
   }
 
